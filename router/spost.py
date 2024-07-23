@@ -1,5 +1,3 @@
-from fastapi import HTTPException
-
 from fastapi import APIRouter
 
 from router.db import execute_query, fetch_query
