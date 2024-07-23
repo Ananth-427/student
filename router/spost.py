@@ -3,7 +3,7 @@ from fastapi import HTTPException
 from fastapi import APIRouter
 
 from router.db import execute_query, fetch_query
-from router.models import Smod, StudentUpdate
+from router.models import Smod
 
 get_data = APIRouter()
 
@@ -37,15 +37,7 @@ async def get_student(student_id: int):
     WHERE id = $1
     """
 
-    result = await fetch_query(query, student_id)  # Use fetch_query here
-
-    # Debugging output
-    print(f"Query result for student_id {student_id}: {result}")
-
-    if not result:
-        raise HTTPException(status_code=404, detail="Student not found")
-
-    # Fetch the first row from the result
+    result = await fetch_query(query, student_id)
     student_record = result[0]
 
     return {

@@ -7,7 +7,3 @@ class Smod(BaseModel):
     age:int
     grade:str
 
-class StudentUpdate(BaseModel):
-    name: Optional[str] = Field(None, example="New Name")
-    age: Optional[int] = Field(None, example=25)
-    grade: Optional[str] = Field(None, example="A")
